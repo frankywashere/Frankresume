@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>FRANK GUGLIUZZI | DIRECTOR</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --noir-black: #000000;
+            --deep-gray: #0a0a0a;
+            --steel: #1a1a1a;
+            --smoke: #2a2a2a;
+            --light: #f0f0f0;
+            --accent: #c9a961;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--noir-black);
+            color: var(--light);
+            overflow-x: hidden;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Cinematic grain */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,.03) 2px, rgba(255,255,255,.03) 4px),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.03) 2px, rgba(255,255,255,.03) 4px);
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Epic opening */
+        .opening-sequence {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .opening-sequence::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, var(--noir-black) 100%);
+            z-index: 2;
+        }
+        
+        .title-card {
+            text-align: center;
+            position: relative;
+            z-index: 3;
+            animation: fadeIn 3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .director-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(80px, 15vw, 200px);
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            line-height: 0.8;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .director-name::before,
+        .director-name::after {
+            content: 'FRANK GUGLIUZZI';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .director-name::before {
+            color: var(--accent);
+            opacity: 0.1;
+            transform: translateX(-5px);
+        }
+        
+        .director-name::after {
+            color: var(--accent);
+            opacity: 0.05;
+            transform: translateX(5px);
+        }
+        
+        .tagline {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(24px, 4vw, 36px);
+            letter-spacing: 0.15em;
+            margin: 40px 0 60px;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-link {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            transition: all 0.5s ease;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        
+        .contact-link:hover {
+            opacity: 1;
+        }
+        
+        .contact-link:hover::after {
+            transform: scaleX(1);
+        }
+        
+        /* Inception-style stats */
+        .metrics-sequence {
+            padding: 120px 40px;
+            background: linear-gradient(180deg, var(--noir-black) 0%, var(--deep-gray) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metrics-sequence::before {
+            content: 'IMPACT';
+            position: absolute;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 300px;
+            color: rgba(201, 169, 97, 0.02);
+            top: -100px;
+            right: -100px;
+            letter-spacing: 0.1em;
+            transform: rotate(-90deg);
+        }
+        
+        .metrics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .metric-block {
+            text-align: center;
+            position: relative;
+            padding: 40px;
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.5s ease;
+        }
+        
+        .metric-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(201, 169, 97, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .metric-block:hover::before {
+            opacity: 1;
+        }
+        
+        .metric-block:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+        
+        .metric-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 72px;
+            color: var(--accent);
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0.7;
+        }
+        
+        /* The Works - Film noir style */
+        .works-section {
+            padding: 120px 40px;
+            background: var(--noir-black);
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(60px, 8vw, 100px);
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            opacity: 0.7;
+        }
+        
+        .works-timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .work-entry {
+            margin-bottom: 60px;
+            padding: 60px;
+            background: var(--steel);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .work-entry::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .work-entry:hover::before {
+            left: 100%;
+        }
+        
+        .work-entry:hover {
+            background: var(--smoke);
+            transform: scale(1.02);
+        }
+        
+        .work-number {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 120px;
+            color: rgba(201, 169, 97, 0.1);
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+        
+        .work-classification {
+            font-size: 12px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: inline-block;
+            padding: 5px 15px;
+            border: 1px solid var(--accent);
+        }
+        
+        .work-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            margin-bottom: 30px;
+            letter-spacing: 0.05em;
+            color: var(--light);
+        }
+        
+        .work-intel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 30px 0;
+        }
+        
+        .intel-item {
+            text-align: center;
+        }
+        
+        .intel-value {
+            font-size: 28px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .intel-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0.6;
+        }
+        
+        .work-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 15px 40px;
+            border: 1px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .work-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+        
+        .work-link:hover {
+            color: var(--noir-black);
+        }
+        
+        .work-link:hover::before {
+            left: 0;
+        }
+        
+        /* Philosophy - Interstellar style */
+        .philosophy-sequence {
+            padding: 180px 40px;
+            text-align: center;
+            background: radial-gradient(circle at center, var(--smoke) 0%, var(--noir-black) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .philosophy-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(40px, 6vw, 80px);
+            line-height: 1.2;
+            max-width: 1000px;
+            margin: 0 auto;
+            letter-spacing: 0.05em;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .philosophy-text span {
+            color: var(--accent);
+        }
+        
+        /* Timeline - Dark Knight style */
+        .timeline-section {
+            padding: 120px 40px;
+            background: var(--deep-gray);
+            position: relative;
+        }
+        
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-entry {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .timeline-date {
+            text-align: right;
+            padding-top: 20px;
+        }
+        
+        .date-range {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+        
+        .organization {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0.6;
+        }
+        
+        .timeline-content {
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .role-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            margin-bottom: 30px;
+            letter-spacing: 0.05em;
+        }
+        
+        .achievements {
+            list-style: none;
+        }
+        
+        .achievements li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            padding-left: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 20px;
+        }
+        
+        /* Arsenal - Weapon systems */
+        .arsenal-section {
+            padding: 120px 40px;
+            background: var(--noir-black);
+            position: relative;
+        }
+        
+        .arsenal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--accent);
+            padding: 2px;
+        }
+        
+        .weapon-system {
+            background: var(--noir-black);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .weapon-system::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, var(--accent), transparent);
+            opacity: 0.2;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+        }
+        
+        .weapon-system:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .weapon-system:hover {
+            background: var(--steel);
+            color: var(--accent);
+        }
+        
+        /* Final sequence */
+        .final-sequence {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--deep-gray) 0%, var(--noir-black) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-sequence::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+        
+        .final-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .final-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(60px, 10vw, 140px);
+            margin-bottom: 30px;
+            letter-spacing: 0.1em;
+            line-height: 0.9;
+        }
+        
+        .final-title span {
+            display: block;
+            color: var(--accent);
+        }
+        
+        .final-message {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+        
+        .initiate-button {
+            display: inline-block;
+            padding: 20px 80px;
+            background: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            border: 2px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .initiate-button::before,
+        .initiate-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--accent);
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+        
+        .initiate-button::before {
+            left: 0;
+            transform: translateX(-100%);
+        }
+        
+        .initiate-button::after {
+            right: 0;
+            transform: translateX(100%);
+        }
+        
+        .initiate-button:hover {
+            color: var(--noir-black);
+        }
+        
+        .initiate-button:hover::before,
+        .initiate-button:hover::after {
+            transform: translateX(0);
+        }
+        
+        /* Mobile cinematography */
+        @media (max-width: 768px) {
+            .director-name { font-size: clamp(60px, 18vw, 140px); }
+            .tagline { font-size: clamp(20px, 5vw, 30px); }
+            .contact-grid { grid-template-columns: 1fr; gap: 20px; }
+            
+            .metrics-sequence, .works-section, .timeline-section, .arsenal-section { padding: 80px 20px; }
+            .section-title { font-size: clamp(48px, 10vw, 80px); }
+            
+            .work-entry { padding: 40px 20px; }
+            .work-number { font-size: 80px; }
+            .work-title { font-size: 36px; }
+            .work-intel { grid-template-columns: 1fr; gap: 20px; }
+            
+            .timeline-entry { 
+                grid-template-columns: 1fr; 
+                gap: 20px;
+            }
+            .timeline-date { text-align: left; }
+            .timeline-content { padding: 40px 20px; }
+            
+            .philosophy-text { font-size: clamp(32px, 8vw, 60px); }
+            .arsenal-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .final-title { font-size: clamp(48px, 12vw, 100px); }
+            .final-message { font-size: 16px; }
+        }
+        
+        @media (max-width: 480px) {
+            .arsenal-grid { grid-template-columns: 1fr; }
+            .metric-value { font-size: 56px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="opening-sequence">
+            <div class="title-card">
+                <h1 class="director-name">FRANK GUGLIUZZI</h1>
+                <p class="tagline">I MAKE ADS THAT BREAK THE INTERNET</p>
+                <nav class="contact-grid">
+                    <a href="tel:6477850822" class="contact-link">647.785.0822</a>
+                    <a href="mailto:frankywashere@gmail.com" class="contact-link">Contact</a>
+                    <a href="https://shotbyfrank.com" class="contact-link">Portfolio</a>
+                </nav>
+            </div>
+        </section>
+
+        <section class="metrics-sequence">
+            <div class="metrics-container">
+                <div class="metric-block">
+                    <div class="metric-value">5</div>
+                    <div class="metric-label">Viral Phenomena Created</div>
+                </div>
+                <div class="metric-block">
+                    <div class="metric-value">15M+</div>
+                    <div class="metric-label">Minds Reached</div>
+                </div>
+                <div class="metric-block">
+                    <div class="metric-value">4</div>
+                    <div class="metric-label">Industry Titans Engaged</div>
+                </div>
+                <div class="metric-block">
+                    <div class="metric-value">0</div>
+                    <div class="metric-label">Media Budget Required</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="works-section">
+            <div class="section-header">
+                <h2 class="section-title">THE WORKS</h2>
+                <p class="section-subtitle">A Chronicle of Cultural Disruption</p>
+            </div>
+            
+            <div class="works-timeline">
+                <article class="work-entry">
+                    <span class="work-number">01</span>
+                    <span class="work-classification">Musk Acknowledged</span>
+                    <h3 class="work-title">Tesla Robotaxi Ad: The Dream</h3>
+                    <div class="work-intel">
+                        <div class="intel-item">
+                            <div class="intel-value">~1M</div>
+                            <div class="intel-label">Views Generated</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">Viral</div>
+                            <div class="intel-label">Cultural Impact</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">$0</div>
+                            <div class="intel-label">Investment</div>
+                        </div>
+                    </div>
+                    <a href="https://x.com/WhatsupFranks/status/1866420781628129454" class="work-link">Witness</a>
+                </article>
+
+                <article class="work-entry">
+                    <span class="work-number">02</span>
+                    <span class="work-classification">Musk Engaged</span>
+                    <h3 class="work-title">Tesla Robotaxi Ad: The Pickup</h3>
+                    <div class="work-intel">
+                        <div class="intel-item">
+                            <div class="intel-value">~1M</div>
+                            <div class="intel-label">Global Reach</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">Cultural</div>
+                            <div class="intel-label">Shift Created</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">Pure</div>
+                            <div class="intel-label">Creative Vision</div>
+                        </div>
+                    </div>
+                    <a href="https://x.com/WhatsupFranks/status/1782438001823404302" class="work-link">Experience</a>
+                </article>
+
+                <article class="work-entry">
+                    <span class="work-number">03</span>
+                    <span class="work-classification">Musk Approved</span>
+                    <h3 class="work-title">Tesla Giga Austin: Night Shots</h3>
+                    <div class="work-intel">
+                        <div class="intel-item">
+                            <div class="intel-value">~1M</div>
+                            <div class="intel-label">Viewers Moved</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">Authentic</div>
+                            <div class="intel-label">Narrative</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">CEO</div>
+                            <div class="intel-label">Recognition</div>
+                        </div>
+                    </div>
+                    <a href="https://x.com/WhatsupFranks/status/1383281088634654725" class="work-link">Observe</a>
+                </article>
+
+                <article class="work-entry">
+                    <span class="work-number">04</span>
+                    <span class="work-classification">Jim Cramer Convinced</span>
+                    <h3 class="work-title">Tesla × DoorDash: Strategic Alliance</h3>
+                    <div class="work-intel">
+                        <div class="intel-item">
+                            <div class="intel-value">~1M</div>
+                            <div class="intel-label">Market Impact</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">Wall St</div>
+                            <div class="intel-label">Attention</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">Future</div>
+                            <div class="intel-label">Architected</div>
+                        </div>
+                    </div>
+                    <a href="https://x.com/jimcramer/status/1844421337428930949" class="work-link">Jim Cramers Post</a>
+                </article>
+
+                <article class="work-entry">
+                    <span class="work-number">05</span>
+                    <span class="work-classification">Record Shattered</span>
+                    <h3 class="work-title">Grill Turismo: Conversion Supremacy</h3>
+                    <div class="work-intel">
+                        <div class="intel-item">
+                            <div class="intel-value">Highest</div>
+                            <div class="intel-label">In History</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">Record</div>
+                            <div class="intel-label">Obliterated</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">Legend</div>
+                            <div class="intel-label">Status Achieved</div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=iP8TnvzNAO4" class="work-link">Review</a>
+                </article>
+
+                <article class="work-entry">
+                    <span class="work-number">06</span>
+                    <span class="work-classification">Gaming Phenomenon</span>
+                    <h3 class="work-title">Call of Duty: Find Makarov</h3>
+                    <div class="work-intel">
+                        <div class="intel-item">
+                            <div class="intel-value">~10M</div>
+                            <div class="intel-label">Views Earned</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">Fan Film</div>
+                            <div class="intel-label">Category Created</div>
+                        </div>
+                        <div class="intel-item">
+                            <div class="intel-value">Global</div>
+                            <div class="intel-label">Gaming Impact</div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=NLmsiaN5dZM" class="work-link">Deploy</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="philosophy-sequence">
+            <p class="philosophy-text">
+                Great advertising doesn't sell products.
+                    <span>It sells dreams, emotions, and futures that people want to be part of.</span>
+             
+            </p>
+        </section>
+
+        <section class="timeline-section">
+            <div class="section-header">
+                <h2 class="section-title">OPERATIONAL HISTORY</h2>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-entry">
+                    <div class="timeline-date">
+                        <div class="date-range">2016—2019</div>
+                        <div class="organization">Canadian Tire</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="role-title">Commercial Director</h3>
+                        <ul class="achievements">
+                            <li>Doubled e-commerce revenue through strategic storytelling</li>
+                            <li>Achieved 3X conversion rate enhancement</li>
+                            <li>Set unbreakable company conversion record</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-entry">
+                    <div class="timeline-date">
+                        <div class="date-range">2006—Present</div>
+                        <div class="organization">Thoughtform Digital</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="role-title">Head of Creative</h3>
+                        <ul class="achievements">
+                            <li>Architected campaigns for LinkedIn, Bacardi, PLAYBOY, Clinique</li>
+                             <li>Executed budgets of 500k+</li>
+                            <li>Generated millions in organic viral propagation</li>
+                            <li>Executed impossible scenarios with zero precedent</li>
+                            <li>Built global creative operations network</li>
+                            <li>Commanded productions exceeding $500K</li>
+                            <li>Handled and oversaw post-production</li>
+                            <li>Developed concepts aligned with stakeholder messaging needs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="arsenal-section">
+            <div class="section-header">
+                <h2 class="section-title">ARSENAL</h2>
+            </div>
+            <div class="arsenal-grid">
+                <div class="weapon-system">Viral Architecture</div>
+                <div class="weapon-system">Cultural Engineering</div>
+                <div class="weapon-system">Narrative Warfare</div>
+                <div class="weapon-system">Brand Alchemy</div>
+                <div class="weapon-system">RED Weapon Systems</div>
+                <div class="weapon-system">VFX Sorcery</div>
+                <div class="weapon-system">Pyrotechnic Arts</div>
+                <div class="weapon-system">Global Operations</div>
+                <div class="weapon-system">Adobe Arsenal</div>
+                <div class="weapon-system">3D Manifestation</div>
+                <div class="weapon-system">AI Enhancement</div>
+                <div class="weapon-system">Future Design</div>
+            </div>
+        </section>
+
+        <section class="final-sequence">
+            <div class="final-content">
+                <h2 class="final-title">
+                     TESLA DOESN'T NEED ADS<br>
+                <span>IT NEEDS MOVEMENTS</span>
+                </h2>
+                <p class="final-message">
+                    I craft campaigns that don't interrupt culture—they become it. 
+                    Work that earns attention in a world that's forgotten how to give it. 
+                    No budgets. No permissions. Just pure creative force.
+                </p>
+                <a href="https://shotbyfrank.com" class="initiate-button">Initiate Contact</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
