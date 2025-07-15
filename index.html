@@ -330,14 +330,16 @@
         }
         
         .work-classification {
-            font-size: 12px;
-            letter-spacing: 0.3em;
+            font-size: 16px; /* Made bigger */
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 20px;
+            color: var(--noir-black); /* Black text */
+            background-color: var(--light); /* White background */
+            margin-bottom: 30px; /* More space below */
             display: inline-block;
-            padding: 5px 15px;
-            border: 1px solid var(--accent);
+            padding: 12px 24px; /* Bigger padding */
+            border: 1px solid var(--light);
+            font-weight: 600; /* Bolder text */
         }
         
         .work-title {
@@ -872,8 +874,8 @@
         <section class="philosophy-sequence">
             <p class="philosophy-text">
                 Great advertising doesn't sell products.
-                    <span>It sells dreams, emotions, and futures that people want to be part of.</span>
-             
+                    <span>It sells dreams, emotions, and futures that people want to be part of.</span>
+               
             </p>
         </section>
 
@@ -935,25 +937,63 @@
                 <div class="weapon-system">Global Operations</div>
                 <div class="weapon-system">Adobe Arsenal</div>
                 <div class="weapon-system">3D Manifestation</div>
-                <div class="weapon-system">AI Enhancement</div>
-                <div class="weapon-system">Future Design</div>
+                <div class="weapon-system">Sound Design</div>
+                <div class="weapon-system">AI Integration</div>
             </div>
         </section>
 
         <section class="final-sequence">
             <div class="final-content">
                 <h2 class="final-title">
-                     TESLA DOESN'T NEED ADS<br>
-                <span>IT NEEDS MOVEMENTS</span>
+                    LET'S CREATE
+                    <span>THE IMPOSSIBLE</span>
                 </h2>
                 <p class="final-message">
-                    I craft campaigns that don't interrupt culture—they become it. 
-                    Work that earns attention in a world that's forgotten how to give it. 
-                    No budgets. No permissions. Just pure creative force.
+                    I don't just create ads; I build universes. If you have a vision that defies convention and a brand that dares to be legendary, we need to talk.
                 </p>
-                <a href="https://shotbyfrank.com" class="initiate-button">Initiate Contact</a>
+                <a href="mailto:frankywashere@gmail.com" class="initiate-button">Initiate Contact</a>
             </div>
         </section>
     </div>
+
+    <script>
+        // Simple script to add animation class on scroll
+        const scrollElements = document.querySelectorAll(".metric-block, .work-entry, .timeline-content, .weapon-system");
+
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add("scrolled");
+        };
+
+        const hideScrollElement = (element) => {
+            element.classList.remove("scrolled");
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                    displayScrollElement(el);
+                } else {
+                    // Optional: hide element when it's out of view
+                    // hideScrollElement(el);
+                }
+            })
+        }
+
+        window.addEventListener("scroll", () => { 
+            handleScrollAnimation();
+        });
+
+        // Add some initial animations for elements already in view
+        document.addEventListener('DOMContentLoaded', () => {
+            handleScrollAnimation();
+        });
+    </script>
 </body>
 </html>
