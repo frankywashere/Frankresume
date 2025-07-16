@@ -7,6 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;600&display=swap');
         
+        /* Basic Reset and Root Variables */
         * {
             margin: 0;
             padding: 0;
@@ -31,7 +32,7 @@
             letter-spacing: 0.05em;
         }
         
-        /* Cinematic grain */
+        /* Cinematic grain overlay */
         body::before {
             content: '';
             position: fixed;
@@ -52,7 +53,7 @@
             z-index: 2;
         }
         
-        /* Epic opening */
+        /* --- Opening Sequence --- */
         .opening-sequence {
             min-height: 100vh;
             display: flex;
@@ -168,7 +169,7 @@
             transform: scaleX(1);
         }
         
-        /* Inception-style stats */
+        /* --- Metrics Sequence --- */
         .metrics-sequence {
             padding: 120px 40px;
             background: linear-gradient(180deg, var(--noir-black) 0%, var(--deep-gray) 100%);
@@ -244,7 +245,7 @@
             opacity: 0.7;
         }
         
-        /* The Works - Film noir style */
+        /* --- Works Section --- */
         .works-section {
             padding: 120px 40px;
             background: var(--noir-black);
@@ -330,16 +331,16 @@
         }
         
         .work-classification {
-            font-size: 16px; /* Made bigger */
+            font-size: 16px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--noir-black); /* Black text */
-            background-color: var(--light); /* White background */
-            margin-bottom: 30px; /* More space below */
+            color: var(--noir-black);
+            background-color: var(--light);
+            margin-bottom: 30px;
             display: inline-block;
-            padding: 12px 24px; /* Bigger padding */
+            padding: 12px 24px;
             border: 1px solid var(--light);
-            font-weight: 600; /* Bolder text */
+            font-weight: 600;
         }
         
         .work-title {
@@ -410,7 +411,7 @@
             left: 0;
         }
         
-        /* Philosophy - Interstellar style */
+        /* --- Philosophy Sequence --- */
         .philosophy-sequence {
             padding: 180px 40px;
             text-align: center;
@@ -434,7 +435,7 @@
             color: var(--accent);
         }
         
-        /* Timeline - Dark Knight style */
+        /* --- Timeline Section --- */
         .timeline-section {
             padding: 120px 40px;
             background: var(--deep-gray);
@@ -512,7 +513,7 @@
             font-size: 20px;
         }
         
-        /* Arsenal - Weapon systems */
+        /* --- Arsenal Section --- */
         .arsenal-section {
             padding: 120px 40px;
             background: var(--noir-black);
@@ -564,7 +565,7 @@
             color: var(--accent);
         }
         
-        /* Final sequence */
+        /* --- Final Sequence --- */
         .final-sequence {
             min-height: 100vh;
             display: flex;
@@ -667,7 +668,7 @@
             transform: translateX(0);
         }
         
-        /* Mobile cinematography */
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
             .director-name { font-size: clamp(60px, 18vw, 140px); }
             .tagline { font-size: clamp(20px, 5vw, 30px); }
@@ -677,9 +678,27 @@
             .section-title { font-size: clamp(48px, 10vw, 80px); }
             
             .work-entry { padding: 40px 20px; }
-            .work-number { font-size: 80px; }
+            .work-number { 
+                font-size: 60px; /* MOBILE FIX: Reduced font size */
+                top: 15px;       /* MOBILE FIX: Adjusted position */
+                right: 15px;      /* MOBILE FIX: Adjusted position */
+            }
+            .work-classification {
+                font-size: 12px;     /* MOBILE FIX: Smaller font */
+                padding: 8px 16px;   /* MOBILE FIX: Smaller padding */
+                margin-bottom: 20px; /* MOBILE FIX: Less margin */
+                background-color: transparent; /* COLOR FIX: Remove white background on mobile */
+                color: var(--accent);          /* COLOR FIX: Use accent color for text on mobile */
+                border: 1px solid var(--accent); /* COLOR FIX: Use accent color for border on mobile */
+            }
             .work-title { font-size: 36px; }
             .work-intel { grid-template-columns: 1fr; gap: 20px; }
+            
+            /* BUTTON LAYOUT FIX: Center buttons on mobile */
+            .work-link {
+                display: block;
+                text-align: center;
+            }
             
             .timeline-entry { 
                 grid-template-columns: 1fr; 
@@ -703,6 +722,7 @@
 </head>
 <body>
     <div class="container">
+        <!-- Opening Sequence -->
         <section class="opening-sequence">
             <div class="title-card">
                 <h1 class="director-name">FRANK GUGLIUZZI</h1>
@@ -715,6 +735,7 @@
             </div>
         </section>
 
+        <!-- Metrics Sequence -->
         <section class="metrics-sequence">
             <div class="metrics-container">
                 <div class="metric-block">
@@ -736,6 +757,7 @@
             </div>
         </section>
 
+        <!-- Works Section -->
         <section class="works-section">
             <div class="section-header">
                 <h2 class="section-title">THE WORKS</h2>
@@ -761,7 +783,7 @@
                             <div class="intel-label">Investment</div>
                         </div>
                     </div>
-                    <a href="https://x.com/WhatsupFranks/status/1866420781628129454" class="work-link">Witness</a>
+                    <a href="https://x.com/WhatsupFranks/status/1866420781628129454" class="work-link" target="_blank" rel="noopener noreferrer">Witness</a>
                 </article>
 
                 <article class="work-entry">
@@ -782,7 +804,7 @@
                             <div class="intel-label">Creative Vision</div>
                         </div>
                     </div>
-                    <a href="https://x.com/WhatsupFranks/status/1782438001823404302" class="work-link">Experience</a>
+                    <a href="https://x.com/WhatsupFranks/status/1782438001823404302" class="work-link" target="_blank" rel="noopener noreferrer">Experience</a>
                 </article>
 
                 <article class="work-entry">
@@ -803,7 +825,7 @@
                             <div class="intel-label">Recognition</div>
                         </div>
                     </div>
-                    <a href="https://x.com/WhatsupFranks/status/1383281088634654725" class="work-link">Observe</a>
+                    <a href="https://x.com/WhatsupFranks/status/1383281088634654725" class="work-link" target="_blank" rel="noopener noreferrer">Observe</a>
                 </article>
 
                 <article class="work-entry">
@@ -824,7 +846,7 @@
                             <div class="intel-label">Architected</div>
                         </div>
                     </div>
-                    <a href="https://x.com/jimcramer/status/1844421337428930949" class="work-link">Jim Cramers Post</a>
+                    <a href="https://x.com/jimcramer/status/1844421337428930949" class="work-link" target="_blank" rel="noopener noreferrer">Jim Cramer's Post</a>
                 </article>
 
                 <article class="work-entry">
@@ -845,7 +867,7 @@
                             <div class="intel-label">Status Achieved</div>
                         </div>
                     </div>
-                    <a href="https://www.youtube.com/watch?v=iP8TnvzNAO4" class="work-link">Review</a>
+                    <a href="https://www.youtube.com/watch?v=iP8TnvzNAO4" class="work-link" target="_blank" rel="noopener noreferrer">Review</a>
                 </article>
 
                 <article class="work-entry">
@@ -866,19 +888,20 @@
                             <div class="intel-label">Gaming Impact</div>
                         </div>
                     </div>
-                    <a href="https://www.youtube.com/watch?v=NLmsiaN5dZM" class="work-link">Deploy</a>
+                    <a href="https://www.youtube.com/watch?v=NLmsiaN5dZM" class="work-link" target="_blank" rel="noopener noreferrer">Deploy</a>
                 </article>
             </div>
         </section>
 
+        <!-- Philosophy Sequence -->
         <section class="philosophy-sequence">
             <p class="philosophy-text">
                 Great advertising doesn't sell products.
-                    <span>It sells dreams, emotions, and futures that people want to be part of.</span>
-               
+                <span>It sells dreams, emotions, and futures that people want to be part of.</span>
             </p>
         </section>
 
+        <!-- Timeline Section -->
         <section class="timeline-section">
             <div class="section-header">
                 <h2 class="section-title">OPERATIONAL HISTORY</h2>
@@ -909,7 +932,7 @@
                         <h3 class="role-title">Head of Creative</h3>
                         <ul class="achievements">
                             <li>Architected campaigns for LinkedIn, Bacardi, PLAYBOY, Clinique</li>
-                             <li>Executed budgets of 500k+</li>
+                            <li>Executed budgets of 500k+</li>
                             <li>Generated millions in organic viral propagation</li>
                             <li>Executed impossible scenarios with zero precedent</li>
                             <li>Built global creative operations network</li>
@@ -922,6 +945,7 @@
             </div>
         </section>
 
+        <!-- Arsenal Section -->
         <section class="arsenal-section">
             <div class="section-header">
                 <h2 class="section-title">ARSENAL</h2>
@@ -935,65 +959,23 @@
                 <div class="weapon-system">VFX Sorcery</div>
                 <div class="weapon-system">Pyrotechnic Arts</div>
                 <div class="weapon-system">Global Operations</div>
-                <div class="weapon-system">Adobe Arsenal</div>
-                <div class="weapon-system">3D Manifestation</div>
-                <div class="weapon-system">Sound Design</div>
-                <div class="weapon-system">AI Integration</div>
+                <div class="weapon-system">Adobe Creative Suite</div>
             </div>
         </section>
 
+        <!-- Final Sequence -->
         <section class="final-sequence">
             <div class="final-content">
                 <h2 class="final-title">
-                    LET'S CREATE
-                    <span>THE IMPOSSIBLE</span>
+                    READY TO DISRUPT?
+                    <span>LET'S CREATE HISTORY.</span>
                 </h2>
                 <p class="final-message">
-                    I don't just create ads; I build universes. If you have a vision that defies convention and a brand that dares to be legendary, we need to talk.
+                    The next viral wave is waiting. I have the vision, the strategy, and the operational capability to command it. Let's discuss how we can build your next cultural landmark.
                 </p>
                 <a href="mailto:frankywashere@gmail.com" class="initiate-button">Initiate Contact</a>
             </div>
         </section>
     </div>
-
-    <script>
-        // Simple script to add animation class on scroll
-        const scrollElements = document.querySelectorAll(".metric-block, .work-entry, .timeline-content, .weapon-system");
-
-        const elementInView = (el, dividend = 1) => {
-            const elementTop = el.getBoundingClientRect().top;
-            return (
-                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-            );
-        };
-
-        const displayScrollElement = (element) => {
-            element.classList.add("scrolled");
-        };
-
-        const hideScrollElement = (element) => {
-            element.classList.remove("scrolled");
-        };
-
-        const handleScrollAnimation = () => {
-            scrollElements.forEach((el) => {
-                if (elementInView(el, 1.25)) {
-                    displayScrollElement(el);
-                } else {
-                    // Optional: hide element when it's out of view
-                    // hideScrollElement(el);
-                }
-            })
-        }
-
-        window.addEventListener("scroll", () => { 
-            handleScrollAnimation();
-        });
-
-        // Add some initial animations for elements already in view
-        document.addEventListener('DOMContentLoaded', () => {
-            handleScrollAnimation();
-        });
-    </script>
 </body>
 </html>
